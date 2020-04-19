@@ -1,0 +1,25 @@
+{
+  "name": "nodejs-microservices-example",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon --exec babel-node src/index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "express-http-proxy": "^1.6.0",
+    "helmet": "^3.22.0",
+    "http-proxy-middleware": "^1.0.3"
+  },
+  "devDependencies": {
+    "gitignore": "^0.6.0",
+    "nodemon": "^2.0.3"
+  }
+}
