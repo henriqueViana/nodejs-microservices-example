@@ -29,15 +29,6 @@ module.exports = (sequelize, DataTypes) => {
         }
       }
     },
-    created_at: {
-      allowNull: false,
-      type: DataTypes.DATE,
-      defaultValue: DataTypes.NOW
-    },
-    updated_at: {
-      type: DataTypes.DATE,
-      defaultValue: DataTypes.NOW
-    }
   }, 
   {
     undescored: true

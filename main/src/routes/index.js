@@ -11,5 +11,6 @@ const proxyOptions = {
 }
 
 router.get('/customers', createProxyMiddleware(proxyOptions))
+router.get('/customers/:id', createProxyMiddleware(proxyOptions))
 
 export default router
