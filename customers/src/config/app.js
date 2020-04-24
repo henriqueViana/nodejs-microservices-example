@@ -1,14 +1,9 @@
-import express from 'express'
+const express = require('express')
+const router = require('../routes')
 
 const app = express()
 
 app.use(express.json())
-// const router = express.Router()
+app.use(router)
 
-// router.get('/customers', (req, res, next) => {
-//   res.json({customers: []})
-// })
-
-// app.use(router)
-
-export default app
+module.exports = app

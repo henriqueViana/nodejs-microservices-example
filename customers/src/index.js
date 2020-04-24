@@ -1,12 +1,7 @@
-import dotenv from 'dotenv'
-dotenv.config()
+require('dotenv').config()
+require('./database/connection')
+const app = require('./config/app')
 
-import app from './config/app'
-import connection from './database/connection'
-import router from './routes'
-
-app.use(router)
-
-const PORT = process.env.PORT || 3001
+const PORT = process.env.PORT
 
 app.listen(PORT, () => console.log('server 3001'))

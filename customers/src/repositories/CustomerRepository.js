@@ -1,8 +1,8 @@
-import status from 'http-status'
-import { Customers } from '../models'
+const status = require('http-status')
+const { Customers } = require('../models')
 
-export default {
-  async findAll(req, res) {
+module.exports = {
+  async findAll() {
     try {
       return await Customers.findAll({
         attributes: ['name', 'email']
@@ -16,9 +16,7 @@ export default {
     }
   },
 
-  async findById(req, res) {
-    const { id } = req.params
-
+  async findById(id) {
     try {
       return await Customers.findByPk(id, {
         attributes: ['name', 'email']

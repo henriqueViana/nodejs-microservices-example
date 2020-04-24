@@ -1,13 +1,15 @@
-import CustomerRepository from '../repositories/CustomerRepository'
+const CustomerRepository = require('../repositories/CustomerRepository')
 
-export default {
+module.exports = {
   async index(req, res) {
-    const result = await CustomerRepository.findAll(req, res)
+    const result = await CustomerRepository.findAll()
     res.json(result)
   },
 
   async show(req, res) {
-    const result = await CustomerRepository.findById(req, res)
+    const { id } = req.params
+
+    const result = await CustomerRepository.findById(id)
     res.json(result)
   }
 }
