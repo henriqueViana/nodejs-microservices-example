@@ -14,7 +14,8 @@ module.exports = {
       },
       email: {
         allowNull: false,
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
+        unique: true
       },
       password: {
         allowNull: false,
@@ -29,12 +30,7 @@ module.exports = {
         type: Sequelize.DATE
       }
     }, {
-      indexes: [
-        {
-          unique: true,
-          fields: ['email']
-        }
-      ]
+      
     });
   },
   down: (queryInterface, Sequelize) => {

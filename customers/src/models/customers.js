@@ -29,6 +29,16 @@ module.exports = (sequelize, DataTypes) => {
         }
       }
     },
+    createdAt: {
+      field: 'created_at',
+      type: DataTypes.DATE,
+      defaultValue: sequelize.literal('NOW()')
+    },
+    updatedAt: {
+      field: 'updated_at',
+      type: DataTypes.DATE,
+      defaultValue: sequelize.literal('NOW()')
+    },
   }, 
   {
     undescored: true
