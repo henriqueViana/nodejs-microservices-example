@@ -5,7 +5,7 @@ module.exports = {
   async findAll() {
     try {
       return await Customers.findAll({
-        attributes: ['name', 'email']
+        attributes: ['id', 'name', 'email']
       })
     } catch (err) {
       return {
@@ -42,18 +42,9 @@ module.exports = {
     }
   },
 
-  async delete(req) {
-    const { id } = req.params
-    const { email } = req.headers
-
-    if (id) {
-      return await deleteById(id)
-    }
-  },
-
-  async deleteById(id) {
+  async destroy(email) {
     const clause = {
-      where: { id }
+      where: { email }
     }
 
     try {
@@ -65,5 +56,5 @@ module.exports = {
         error: err
       }
     }
-  }
+  },
 }

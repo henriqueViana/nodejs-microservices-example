@@ -34,20 +34,20 @@ describe('-----CustomerController integration test-----', () => {
   })
 
   describe('create method', () => {
-    // it('should return a object with created data when create method is called', async () => {
-    //   const endpoint = '/customers'
-    //   const body = {
-    //     name: 'tester',
-    //     email: 'tester@gmail.com',
-    //     password: '123456'
-    //   }
+    it('should return a object with created data when create method is called', async () => {
+      const endpoint = '/customers'
+      const body = {
+        name: 'tester',
+        email: 'tester@gmail.com',
+        password: '123456'
+      }
 
-    //   const customer = await request.post(endpoint).send(body)
+      const customer = await request.post(endpoint).send(body)
 
-    //   expect(customer.statusCode).toBe(status.OK)
-    //   expect(customer.body.name).toEqual(body.name)
-    //   expect(customer.body.email).toEqual(body.email)
-    // })
+      expect(customer.statusCode).toBe(status.OK)
+      expect(customer.body.name).toEqual(body.name)
+      expect(customer.body.email).toEqual(body.email)
+    })
 
     it('should return a unique constrain error when create a customer with duplicate email', async () => {
       const endpoint = '/customers'
@@ -62,6 +62,19 @@ describe('-----CustomerController integration test-----', () => {
 
       expect(customer.body.statusCode).toBe(status.INTERNAL_SERVER_ERROR)
       expect(customer.body.error.name).toEqual(errorTypeMessage)
+    })
+  })
+
+  describe('destroy method', () => {
+    it ('should return the value 1 when destroy method is called and success deleted', async () => {
+      const endpoint = '/customer'
+      const email = 'tester@gmail.com'
+
+      const result = await request
+                            .delete(endpoint)
+                            .set('email', email)
+
+      expect(result).toEqual(1)
     })
   })
 })

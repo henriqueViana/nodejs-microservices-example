@@ -21,7 +21,9 @@ module.exports = {
   },
   
   async destroy(req, res) {
-    const result = await CustomerRepository.delete(req)
+    const { email } = req.headers
+    
+    const result = await CustomerRepository.destroy(email)
     res.json(result)
   }
 }

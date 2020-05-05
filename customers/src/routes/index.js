@@ -1,10 +1,10 @@
 const express = require('express')
-const CostumerController = require('../controllers/CostumerController')
+const CustumerController = require('../controllers/CustumerController')
 const router = express.Router()
 
-router.get('/customers', CostumerController.index)
-router.get('/customers/:id', CostumerController.show)
-router.post('/customers', CostumerController.store)
-router.delete('/customers/:id', CostumerController.destroy)
+router.get('/customers', CustumerController.index)
+router.get('/customers/:id', CustumerController.show)
+router.post('/customers', CustumerController.store)
+router.delete('/customers', CustumerController.destroy)
 
 module.exports = router
